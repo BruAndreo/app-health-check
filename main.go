@@ -1,7 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"apphealthmonitor/files"
+)
 
 func main() {
-	fmt.Println("Teste")
+	getConfigs()
+}
+
+func getConfigs() {
+	files.LoadConfig()
 }
