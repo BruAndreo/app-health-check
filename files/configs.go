@@ -19,7 +19,7 @@ type Configs struct {
 func LoadConfig() {
 	configs := Configs{}
 
-	filePath, _ := filepath.Abs("config.yaml")
+	filePath, _ := getFilePath()
 	fileBuffer, err := ioutil.ReadFile(filePath)
 
 	if err != nil {
@@ -33,4 +33,8 @@ func LoadConfig() {
 	}
 
 	fmt.Println("Seráá", configs)
+}
+
+func getFilePath() (string, error) {
+	return filepath.Abs("config.yaml")
 }
