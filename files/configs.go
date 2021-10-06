@@ -9,10 +9,10 @@ import (
 )
 
 type Configs struct {
-	// sites    []string
-	requests struct {
-		quantity     int `yaml:"quantity"`
-		delaySeconds int `yaml:"delaySeconds"`
+	Sites    []string `yaml:sites,flow`
+	Requests struct {
+		Quantity     int `yaml:"quantity"`
+		DelaySeconds int `yaml:"delaySeconds"`
 	}
 }
 

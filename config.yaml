@@ -1,6 +1,6 @@
-# sites:
-#   - https://old.reddit.com/r/cats/
-#   - https://old.reddit.com/r/AskReddit/
+sites:
+  - https://old.reddit.com/r/cats/
+  - https://old.reddit.com/r/AskReddit/
 
 requests: 
   quantity: 10
