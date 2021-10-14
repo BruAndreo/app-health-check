@@ -2,12 +2,13 @@ package main
 
 import (
 	"apphealthmonitor/files"
+	"fmt"
 )
 
-func main() {
-	getConfigs()
-}
+var FILE_NAME = "config.yaml"
 
-func getConfigs() {
-	files.LoadConfig()
+func main() {
+	configs := files.LoadConfig(FILE_NAME)
+
+	fmt.Println(configs)
 }

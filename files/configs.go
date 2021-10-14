@@ -3,6 +3,7 @@ package files
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 	"path/filepath"
 
 	"gopkg.in/yaml.v2"
@@ -16,25 +17,26 @@ type Configs struct {
 	}
 }
 
-func LoadConfig() {
+func LoadConfig(fileName string) Configs {
 	configs := Configs{}
 
-	filePath, _ := getFilePath()
+	filePath, _ := filepath.Abs(fileName)
 	fileBuffer, err := ioutil.ReadFile(filePath)
 
 	if err != nil {
-		fmt.Println("Error in load config.yaml", err.Error())
+		finishLoaderWithErr("Error in open configs file", err)
 	}
 
-	err2 := yaml.Unmarshal(fileBuffer, &configs)
+	err = yaml.Unmarshal(fileBuffer, &configs)
 
-	if err2 != nil {
-		fmt.Println("Error in decode file", err.Error())
+	if err != nil {
+		finishLoaderWithErr("Error in decode file", err)
 	}
 
-	fmt.Println("Seráá", configs)
+	return configs
 }
 
-func getFilePath() (string, error) {
-	return filepath.Abs("config.yaml")
+func finishLoaderWithErr(msg string, err error) {
+	fmt.Println(msg, err.Error())
+	os.Exit(-1)
 }
