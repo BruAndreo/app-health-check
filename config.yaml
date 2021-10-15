@@ -3,5 +3,5 @@ sites:
   - https://old.reddit.com/r/AskReddit/
 
 requests: 
-  quantity: 10
+  quantity: 3
   delaySeconds: 5
